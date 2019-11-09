@@ -17,28 +17,15 @@ Jeweler::Tasks.new do |gem|
   gem.name = "awesome-validator"
   gem.homepage = "http://github.com/dpaluy/awesome-validator"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "david@paluy.org"
+  gem.summary = %Q{Validate awesome links in your Readme}
+  gem.description = %Q{Use TravisCI to validate your awesome collection}
+  gem.email = "dpaluy@gmail.com"
   gem.authors = ["David Paluy"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-desc "Code coverage detail"
-task :simplecov do
-  ENV['COVERAGE'] = "true"
-  Rake::Task['test'].execute
-end
-
-task :default => :test
+task :default => :build
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
